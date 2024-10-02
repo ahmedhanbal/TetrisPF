@@ -29,5 +29,6 @@ Based on Minimial OOP, mostly basic concepts of C++
             3. g++ main.o -o tetris -lsfml-graphics -lsfml-window -lsfml-system
             4. ./tetris
 * Windows:
-             # You can install msys2 and run the command 2 and 3 from GNU Linux and then 
-            1. .\tetris.exe
+
+             # You can install msys2 and run the command 2 and 3 from GNU Linux and then
+             1. .\tetris.exe
