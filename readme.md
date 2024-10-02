@@ -1,10 +1,10 @@
 Improving my first Semester Programming Fundamentals Project
-Tetris Game Based in C++
+Tetris Game Based in C++ and SFML
 Based on Minimial OOP, mostly basic concepts of C++
 
----------FEATURES----------
+#FEATURES
 
---Current--:
+##Current:
            
            * Left,Right and Down Movements Possible
            * Press Space key to instantly move block till end
@@ -12,14 +12,14 @@ Based on Minimial OOP, mostly basic concepts of C++
            * Shadow of a block that will tell user where block will fall 
            * Next Block will also be shown to help the user
          
---Future--:
+##Future:
            
            * A bomb will fall after random time, giving player some advantages
            * A complete Menu
            * Scoring : Live Score, High Scores
                     
 
------------COMPILE AND RUN-----------
+#COMPILE AND RUN
 
 * GNU LINUX: 
 
@@ -28,7 +28,6 @@ Based on Minimial OOP, mostly basic concepts of C++
             2. g++ -c main.cpp
             3. g++ main.o -o tetris -lsfml-graphics -lsfml-window -lsfml-system
             4. ./tetris
-* Windows
-   You can install msys2 and run the command 2 and 3 from GNU Linux and then 
-   1. .\tetris.exe
------------End------------
+* Windows:
+             # You can install msys2 and run the command 2 and 3 from GNU Linux and then 
+            1. .\tetris.exe
