@@ -1,4 +1,4 @@
-Improving my first Semester Programming Fundamentals Project
+My first Semester Programming Fundamentals Project
 Tetris Game Based in C++ and SFML
 Based on Minimial OOP, mostly basic concepts of C++
 
