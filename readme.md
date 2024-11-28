@@ -1,6 +1,6 @@
 AhmedAliZahid,CS,FASTNU\
-Tetris Game Based on C++\
-Based on Minimial OOP, mostly basic C++
+Tetris Game in C++ and SFML\
+Minimial OOP, 2D pointer and arrays C++
 
 ## FEATURES
 
@@ -19,5 +19,3 @@ Based on Minimial OOP, mostly basic C++
             2. g++ -c main.cpp
             3. g++ main.o -o tetris -lsfml-graphics -lsfml-window -lsfml-system
             4. ./tetris
-
------------End------------
