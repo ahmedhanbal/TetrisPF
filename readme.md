@@ -4,8 +4,6 @@ Based on Minimial OOP, mostly basic C++
 
 ---------FEATURES----------
 
---Current--:
-           
            * Left,Right and Down Movements Possible
            * Press Space key to instantly move block till end
            * Ability to rotate blocks
