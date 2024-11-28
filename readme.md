@@ -2,7 +2,7 @@ AhmedAZ14,CS,FASTNU
 Tetris Game Based on C++
 Based on Minimial OOP, mostly basic C++
 
----------FEATURES----------
+## FEATURES
 
            * Left,Right and Down Movements Possible
            * Press Space key to instantly move block till end
@@ -10,7 +10,7 @@ Based on Minimial OOP, mostly basic C++
            * Shadow of a block that will tell user where block will fall 
            * Next Block will also be shown to help the user
 
------------COMPILE AND RUN-----------
+## COMPILE AND RUN
 
 * GNU LINUX: 
 
