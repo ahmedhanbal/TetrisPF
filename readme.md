@@ -1,4 +1,4 @@
-AhmedAZ14,CS,FASTNU\
+AhmedAliZahid,CS,FASTNU\
 Tetris Game Based on C++\
 Based on Minimial OOP, mostly basic C++
 
