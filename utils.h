@@ -12,7 +12,7 @@ const int M = 20;   //Number of rows for a piece to cover on the screen (not the
 const int N = 10;   //Number of columns for a piece to cover on the screen (not the entire screen) = 10
 
 //---The Actual Interactive Game Grid - Built Over (MxN)---//
-int gameGrid[M][N] = {0};
+int gameGrid[M][N];
 
 //---To Hold the Coordinates of the Piece---//
 int point_1[4][2], point_2[4][2];
