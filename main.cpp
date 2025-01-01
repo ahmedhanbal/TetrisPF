@@ -89,7 +89,7 @@ int main()
                     delta_x = 1;                        // Change in X-Axis - Positive
                 else if (e.key.code == Keyboard::Down)
                     delay = 0.05;
-                else if (e.key.code == Keyboard::Down)
+                else if (e.key.code == Keyboard::Space)
                 {
                     skip = true;
                     instantDrop(colorNum);
@@ -116,7 +116,7 @@ int main()
 
         checkLine(points, lines); // checks if a line is completely filled, if filled it clears it
 
-        if (!gameEnd()) // dont be fooled by ! , gameEnd() returns false when game has ended
+        if (end) 
         {
             // Displaying GameOver Menu
             window.clear(Color::Black);
@@ -156,9 +156,9 @@ int main()
         {
             for (int j = 0; j < N; j++)
             {
-                if (gameGrid[i][j] == -1 )
+                if (gameGrid[i][j] == -1)
                     continue;
-                sprite.setTextureRect(IntRect(gameGrid[i][j] * 18, 0, 18, 18));
+                sprite.setTextureRect(IntRect((gameGrid[i][j] - 1) * 18, 0, 18, 18));
                 sprite.setPosition(j * 18, i * 18);
                 sprite.move(28, 31); // offset
                 window.draw(sprite);
@@ -168,14 +168,14 @@ int main()
         // setting position of shadow and drawing it on screen
         for (int i = 0; i < 4; i++)
         {
-            shadow.setTextureRect(IntRect((colorNum - 1 )* 18, 0, 18, 18));
+            shadow.setTextureRect(IntRect((colorNum - 1) * 18, 0, 18, 18));
             shadow.setPosition(shadow2[i][0] * 18, shadow2[i][1] * 18);
             shadow.move(28, 31);
             window.draw(shadow);
         }
         for (int i = 0; i < 4; i++)
         {
-            sprite.setTextureRect(IntRect((colorNum -1 ) * 18, 0, 18, 18));
+            sprite.setTextureRect(IntRect((colorNum - 1) * 18, 0, 18, 18));
             sprite.setPosition(point_1[i][0] * 18, point_1[i][1] * 18);
             sprite.move(28, 31);
             window.draw(sprite);
@@ -183,7 +183,7 @@ int main()
         // setting position of next block on screen and displaying it
         for (int i = 0; i < 4; i++)
         {
-            nextBlock.setTextureRect(IntRect((colorNum -1 ) * 18, 0, 18, 18));
+            nextBlock.setTextureRect(IntRect((nxtColor - 1) * 18, 0, 18, 18));
             nextBlock.setPosition(nxtBlock[i][0] * 18, nxtBlock[i][1] * 18);
             nextBlock.move(260, 150);
             window.draw(nextBlock);

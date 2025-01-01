@@ -10,8 +10,17 @@ void initGameGrid(){
   }
 }
 
+void gameEnd() // GameOver Fn
+{
+  for (int j = 0; j < N; j++) {
+    if (gameGrid[0][j] != -1) {
+      end = true ;
+    }
+  }
+}
+
 void nxtBlockFn(int &nxtPiece, int &nxtColor, int nxtBlock[4][2])
-{                        // nextBlock Guess Function
+{                        
   nxtPiece = rand() % 7 ; // next piece
   nxtColor = rand() % 8 + 1 ; // next color
   for (int i = 0; i < 4; i++)
@@ -24,33 +33,45 @@ void nxtBlockFn(int &nxtPiece, int &nxtColor, int nxtBlock[4][2])
 //---Piece Starts to Fall When Game Starts---//
 void fallingPiece(float &timer, float &delay, int &colorNum, int &nxtPiece, int &nxtColor, int nextBlock[4][2])
 {
-  if (timer > delay)
-  {
-    for (int i = 0; i < 4; i++)
+    if (timer > delay)
     {
-      point_2[i][0] = point_1[i][0];
-      point_2[i][1] = point_1[i][1];
-      point_1[i][1] += 1; // How much units downward
-    }
-    if (!anamoly())
-    {
-      for (int i = 0; i < 4; i++)
-      {
-        gameGrid[point_2[i][1]][point_2[i][0]] = colorNum; // for storing the shape in gamegrid, color will be colorNum
-      }
-      int n = nxtPiece;
-      colorNum = nxtColor;
-      nxtBlockFn(nxtPiece, nxtColor, nextBlock);
-      //--- Un-Comment this Part When You Make BLOCKS array---//
+        // Store current position
+        for (int i = 0; i < 4; i++)
+        {
+            point_2[i][0] = point_1[i][0];
+            point_2[i][1] = point_1[i][1];
+            point_1[i][1] += 1; // Move down
+        }
 
-      for (int i = 0; i < 4; i++)
-      {
-        point_1[i][0] = BLOCKS[n][i] % 2; // it will extract random piece from BLOCKS, using value of n, as in BLOCKS array, each row has a different piece
-        point_1[i][1] = BLOCKS[n][i] / 2; // same as above
-      }
+        if (!anamoly())
+        {
+            // Revert to last valid position before storing
+            for (int i = 0; i < 4; i++)
+            {
+                point_1[i][0] = point_2[i][0];
+                point_1[i][1] = point_2[i][1];
+            }
+
+            gameEnd();
+            // Store the piece in grid at its final position
+            for (int i = 0; i < 4; i++)
+            {
+                gameGrid[point_1[i][1]][point_1[i][0]] = colorNum;
+            }
+
+            // Set up next piece
+            int n = nxtPiece;
+            colorNum = nxtColor;
+            nxtBlockFn(nxtPiece, nxtColor, nextBlock);
+
+            for (int i = 0; i < 4; i++)
+            {
+                point_1[i][0] = BLOCKS[n][i] % 2;
+                point_1[i][1] = BLOCKS[n][i] / 2;
+            }
+        }
+        timer = 0;
     }
-    timer = 0;
-  }
 }
 
 void checkLine(int &points, int &lines) // checks if a line is completely filled, if filled it clears it
@@ -61,7 +82,7 @@ void checkLine(int &points, int &lines) // checks if a line is completely filled
     int filledCols = 0;
     for (int j = 0; j < N; j++) // till columns
     {
-      if (gameGrid[i][j]) // as it is in loop, only a specific row and a specific column will be checked, if 1 or filled
+      if (gameGrid[i][j] != -1) // as it is in loop, only a specific row and a specific column will be checked, if 1 or filled
       {
         filledCols++; // in a single row it will tell how many columns are 1 or filled
       }
@@ -127,7 +148,7 @@ void rotationFn() // Rotation Function
 void firstRunFn(int &colorNum, int &nxtPiece, int &nxtColor, int nxtBlock[4][2]) // a fn to remove a single piece as first shape when game starts
 {
   int n = rand() % 7;
-  colorNum = rand() % 7;
+  colorNum = rand() % 7 + 1;
   for (int i = 0; i < 4; i++)
   {
     point_1[i][0] = BLOCKS[n][i] % 2;
@@ -228,15 +249,6 @@ void resetFn()
     }
   }
   return;
-}
-bool gameEnd() // GameOver Fn
-{
-  for (int i = 0; i < 4; i++)
-  {
-    if (gameGrid[1][point_1[i][0]])
-      return 0;
-  }
-  return 1;
 }
 
 void lvlUp(int &points, float &delay) // Level Up Function

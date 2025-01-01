@@ -1,7 +1,3 @@
-AhmedAliZahid,CS,FASTNU\
-Tetris Game in C++ and SFML\
-Minimial OOP, 2D pointer and arrays C++
-
 ## FEATURES
 
            * Left,Right and Down Movements Possible
@@ -16,6 +12,7 @@ Minimial OOP, 2D pointer and arrays C++
 
                # Note you should have g++ compiler installed
             1. install sfml using : sudo apt install libsfml-dev
+            then either use compile.sh or do this : 
             2. g++ -c main.cpp
             3. g++ main.o -o tetris -lsfml-graphics -lsfml-window -lsfml-system
             4. ./tetris
