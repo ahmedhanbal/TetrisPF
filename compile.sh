@@ -1,3 +1,4 @@
+#!/bin/bash
 compiler=g++
 file=main.cpp
 libs="-lsfml-graphics -lsfml-window -lsfml-system"
